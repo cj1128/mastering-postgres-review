@@ -58,3 +58,13 @@ $ source venv/bin/activate
 - `four-albums.sql`: display albums and durations from artists who only have 4 albums
 
   use `lateral` sub queries and stored procedure.
+
+## A Small Application
+
+- `load-data.sql`: use `pgloader` to load sqlite data to pg
+
+- `top-artists-by-album`: list top n artists ordered by album count
+
+- `top-artists-by-genre`: list top n artists by genre
+
+  use `lateral` join.
