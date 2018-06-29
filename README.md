@@ -11,10 +11,16 @@
 
 ## About Python Code
 
-should activate virtual env first. if `direnv` has been installed, virtual env will be automaticaly activated when enters the root directory.
+first create virtual env under `~/Documents/python/envs`.
 
 ```bash
-$ source venv/bin/activate
+python3 -m venv ~/Documents/python/envs/mastering-pg
+```
+
+then activate virtual env. if `direnv` has been installed, virtual env will be automaticaly activated when enters the root directory.
+
+```bash
+$ source ~/Documents/python/envs/mastering-pg/bin/activate
 ```
 
 ## Quotes
@@ -68,3 +74,11 @@ $ source venv/bin/activate
 - `top-artists-by-genre`: list top n artists by genre
 
   use `lateral` join.
+
+## The SQL REPL - An Interactive Setup
+
+- `get-database-size.sql`: user postgres `pg_database` to get name and size of all databases
+
+## SQL is Code
+
+- `tracks-named-after-artists`: find out tracks being named after another artists
