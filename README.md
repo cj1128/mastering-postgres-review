@@ -97,3 +97,13 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
   $ createdb f1db
   $ psql -d f1db < load_data.sql
   ```
+
+### Select, From, Where
+
+- `date-calc.sql`: use PG to do some date calcs
+
+- `top-drivers.sql`: get top 3 drivers
+
+- `race-and-winner.sql`: list races and their winners of a period of time
+
+- `unlucky-drivers.sql`: list drivers who did not finish the race of some season
