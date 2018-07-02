@@ -1,6 +1,6 @@
 begin;
 
-drop table factbook;
+drop table if exists factbook;
 
 create table factbook_raw(
   year int,

@@ -27,7 +27,11 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > If you want to use stored procedures, please always write them in SQL, and only switch to PLpgSQL when necessary. If you want to be efficient, the default should be SQL. -- page 42
 
-## 1. Introduction
+> The SQL writing process is mainly about discovery. In SQL you need to explain your problem, unlike in most programming languages where you need to focus on a solution you think is going to solve your problem. That’s quite different and requires looking at your problem in another way and understanding it well enough to be able to express it in details in a single sentence. -- page 86
+
+## 1. Preface
+
+## 2. Introduction
 
 ### A First Use Case
 
@@ -49,9 +53,9 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
   use `lag` window function.
 
-## 2. Writing SQL Queries
+## 3. Writing SQL Queries
 
-## Business Logic
+### Business Logic
 
 - `artist-album-duration.sql`: display the list of albums from a given artist, each with its total duration
 
@@ -65,7 +69,7 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
   use `lateral` sub queries and stored procedure.
 
-## A Small Application
+### A Small Application
 
 - `load-data.sql`: use `pgloader` to load sqlite data to pg
 
@@ -75,10 +79,21 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
   use `lateral` join.
 
-## The SQL REPL - An Interactive Setup
+### The SQL REPL - An Interactive Setup
 
 - `get-database-size.sql`: user postgres `pg_database` to get name and size of all databases
 
-## SQL is Code
+### SQL is Code
 
 - `tracks-named-after-artists`: find out tracks being named after another artists
+
+## 4. SQL Toolbox
+
+### Get Some Data
+
+- `loda-data.sql`: creat tables and load data to `f1db` database. Data was downloaded from http://ergast.com/mrd/db/.
+
+  ```bash
+  $ createdb f1db
+  $ psql -d f1db < load_data.sql
+  ```
