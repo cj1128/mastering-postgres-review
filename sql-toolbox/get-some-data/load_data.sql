@@ -16,6 +16,8 @@ create table circuits(
   position point
 );
 
+create index on circuits using gist(position);
+
 \copy circuits(circuitid, circuitref, name, location, country, lat, lng, alt, url) from 'f1db/csv/circuits.csv' with (format csv, null '\N')
 
 update circuits

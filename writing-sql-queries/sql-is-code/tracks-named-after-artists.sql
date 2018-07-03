@@ -1,4 +1,5 @@
-select track.name as track,
+select
+  track.name as track,
   author.name as author,
   album.title as album,
   artist.name as artist

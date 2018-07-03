@@ -29,6 +29,8 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > The SQL writing process is mainly about discovery. In SQL you need to explain your problem, unlike in most programming languages where you need to focus on a solution you think is going to solve your problem. That’s quite different and requires looking at your problem in another way and understanding it well enough to be able to express it in details in a single sentence. -- page 86
 
+> In any case, using the offset clause is very bad for your query performances, so we advise against it. -- page 107
+
 ## 1. Preface
 
 ## 2. Introduction
@@ -37,21 +39,20 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `load-data.sql`: load tsv data to postgres
 
-  use `\copy` command.
+  + use `\copy` command.
 
 - `select-february.sql`: select records of specific date range, e.g. february 2017
 
-  use `date` and `interval` function to manipulate date.
-
-  use `to_char` function to format numbers.
+  + use `date` and `interval` function to manipulate date.
+  + use `to_char` function to format numbers.
 
 - `select-full-february.sql`: show records of every day of february 2017, if not present, use zero
 
-  use `generate_series` to generate a date range.
+  + use `generate_series` to generate a date range.
 
 - `add-wow.sql`: add a column *wow* to show dollars difference between current day and previous week
 
-  use `lag` window function.
+  + use `lag` window function.
 
 ## 3. Writing SQL Queries
 
@@ -59,7 +60,7 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `artist-album-duration.sql`: display the list of albums from a given artist, each with its total duration
 
-  use `interval` data type, remember to set `intervalstyle` to `postgres_verbose`.
+  + use `interval` data type, remember to set `intervalstyle` to `postgres_verbose`.
 
 - `artist-album-duration.py`: use python to do the same thing as above.
 
@@ -77,7 +78,7 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `top-artists-by-genre`: list top n artists by genre
 
-  use `lateral` join.
+  + use `lateral` join.
 
 ### The SQL REPL - An Interactive Setup
 
@@ -107,3 +108,16 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 - `race-and-winner.sql`: list races and their winners of a period of time
 
 - `unlucky-drivers.sql`: list drivers who did not finish the race of some season
+
+### Order By, Limit, No Offset
+
+- `order-by.sql`: show use case of multiple `order by` expressions and using `case` in `order by`
+
+- `knn.sql`: find top 10 nearest circuits to Pairs(2.349014, 48.864716)
+
+- `top-drivers-per-decade.sql`: List top three drivers in terms of race wins for each decade
+
+  + use `date_trunc` to get decade from date.
+  + use window function to calc rank
+
+- `page-by-seek.sql`: use seek to page results, never use `offset`
