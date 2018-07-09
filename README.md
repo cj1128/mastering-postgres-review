@@ -121,3 +121,50 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
   + use window function to calc rank
 
 - `page-by-seek.sql`: use seek to page results, never use `offset`
+
+### Group By, Having, With, Union All
+
+- `races-per-decade.sql`: list races count of every decade
+
+- `decade-races-with-diff.sql`: like before, but add a `diff` column
+
+  + use `lng` window function to get previous row value
+  + use `format(%3s)` to format numbers to fixed with string
+
+- `never-finished.sql`: find out drivers who never finished a race in their career
+
+  + use `bool_and` aggregate function
+
+- `never-finished-by-season.sql`: find out number of drivers who never finished a race by season
+
+- `status-count.sql`: list status count for unfinished drivers at a specific season
+
+  + use `having` to filter groups
+
+- `driver-constructor-points.sql`: list drivers and constructors points
+
+  + use `grouping sets` to calc based upon multiple groups
+
+- `driver-constructor-rollup.sql`: list drivers and constructors points using `rollup`
+
+- `driver-constructor-cube.sql`: list driver and constructor points using `cube`
+
+- `dangerous-seasons.sql`: list top 5 dangerous seasons in terms of accidents
+
+- `accident-pct.sql`: list accident percentage of every season
+
+- `champions.sql`: list driver's champion and constructor's champion of every season
+
+  + use `with` to construct sub table
+  + use `rank` window function to select champion
+
+- `ever-won.sql`: list drivers who ever won the Formula One race
+
+  + use `distinct on`
+
+- `972-points.sql`: list drivers' and constructors' points in race id 972
+
+  + use `union all` to union two query sets
+
+- `971-not-972.sql`: list drivers who didn't get points in race 972 but did get points in race 971
+
