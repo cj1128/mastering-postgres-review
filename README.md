@@ -31,6 +31,12 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > In any case, using the offset clause is very bad for your query performances, so we advise against it. -- page 107
 
+> We can think of null as meaning I don’t know what this is rather than no value here. -- page 127
+
+> Any and all aggregate function you already know can be used against a window frame rather than a grouping clause, so you can already start to use sum, min, max, count, avg, and the other that you’re already used to using. -- page 134
+
+> You need to remember that the windowing clauses are always considered last in the query, meaning after the where clause. -- page 136
+
 ## 1. Preface
 
 ## 2. Introduction
@@ -167,4 +173,8 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
   + use `union all` to union two query sets
 
 - `971-not-972.sql`: list drivers who didn't get points in race 972 but did get points in race 971
+
+### Understanding Nulls
+
+- `truth-table.sql`: generate a truth table to reveal the `three-valued logic`
 
