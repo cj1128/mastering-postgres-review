@@ -37,6 +37,14 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > You need to remember that the windowing clauses are always considered last in the query, meaning after the where clause. -- page 136
 
+> About the data type itself, it must be noted that text and varchar are the same thing as far as PostgreSQL is concerned, and character varying is an alias for varchar. When using varchar(15) you’re basically telling Post- greSQL to manage a text column with a check constraint of 15 characters. -- page 155
+
+> The first question we need to answer here is about using timestamps with or without time zones from our applications. The answer is simple: always use timestamps WITH time zones. -- page 167
+
+> we see that the now() function always returns the same timestamp within a single transaction. If you want to see the clock running while in a transaction, use the clock_timestamp() function instead. -- page 169
+
+> It’s tempting to use the between SQL operator, but we would then have to remember that between includes both its lower and upper bound and we would then have to compute the upper bound as the very last instant of the day. Using explicit greater than or equal and less than operators makes it possible to always compute the very first time of the day, which is easier, and well supported by PostgreSQL. -- page 176
+
 ## 1. Preface
 
 ## 2. Introduction
@@ -178,3 +186,14 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `truth-table.sql`: generate a truth table to reveal the `three-valued logic`
 
+## 5. Data Types
+
+- `equal-operator.sql`: list all functions of `=` operator, use `pg_operator` table
+
+- `data-types.sql`: list all PG data types
+
+- `time-diff.sql`: find difference between *Commiter Commit Timestamp*  and `Author Commit Timestamp`
+
+  + use `percentile_cont` to get median value
+
+- `rates/load-data.sql`: load currency rate data to database, raw data downloaded from https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate=2018-06-30&reportType=CVSDR
