@@ -188,7 +188,11 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 ## 5. Data Types
 
+### Some Relational Theory
+
 - `equal-operator.sql`: list all functions of `=` operator, use `pg_operator` table
+
+### PostgreSQL Data Types
 
 - `data-types.sql`: list all PG data types
 
@@ -197,3 +201,9 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
   + use `percentile_cont` to get median value
 
 - `rates/load-data.sql`: load currency rate data to database, raw data downloaded from https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate=2018-06-30&reportType=CVSDR
+
+### Denormalized Data Types
+
+- `tweets/load-data.sql`: load tweets data to database
+``
+- `tweets/popular-tag.sql`: get most popular tags
