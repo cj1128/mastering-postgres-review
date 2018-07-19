@@ -202,8 +202,14 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `rates/load-data.sql`: load currency rate data to database, raw data downloaded from https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate=2018-06-30&reportType=CVSDR
 
+- `get-currency-rate.sql`: get currency rate at a specific date
+
+  + use `@>` contain operator
+
 ### Denormalized Data Types
 
 - `tweets/load-data.sql`: load tweets data to database
 ``
 - `tweets/popular-tag.sql`: get most popular tags
+
+- `enum-type.sql`: demonstrate how to use `enum` to create enumerations
