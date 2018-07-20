@@ -186,6 +186,8 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `truth-table.sql`: generate a truth table to reveal the `three-valued logic`
 
+    + use `is distinct from` to treat null as a normal value
+
 ## 5. Data Types
 
 ### Some Relational Theory
@@ -209,7 +211,27 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 ### Denormalized Data Types
 
 - `tweets/load-data.sql`: load tweets data to database
+
+    + use `regexp_matches` to extract tag from content
+    + use `array_agg` to aggregate rows to array
+
 ``
 - `tweets/popular-tag.sql`: get most popular tags
 
 - `enum-type.sql`: demonstrate how to use `enum` to create enumerations
+
+## 5. Data Modeling
+
+### Tooling for Databasde Modeling
+
+- `random-lorem-function.sql`: define `lorem` and `random` function
+
+    + use `regexp_split_to_table` to split big text to small text
+    + use `string_agg` to join strings
+
+- `model-sandbox.sql`: create a sandbox database to model bussiness logic
+
+- `recent-articles-per-category`: list most recent articles per category with most recent comments
+
+    + use `jsonb_agg` to group records
+    + use `jsonb_pretty` to output pretty json
