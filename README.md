@@ -45,6 +45,10 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > It’s tempting to use the between SQL operator, but we would then have to remember that between includes both its lower and upper bound and we would then have to compute the upper bound as the very last instant of the day. Using explicit greater than or equal and less than operators makes it possible to always compute the very first time of the day, which is easier, and well supported by PostgreSQL. -- page 176
 
+> Database normalization is the process of organizing the columns (attributes) and tables (relations) of a relational database to re- duce data redundancy and improve data integrity. Normaliza- tion is also the process of simplifying the design of a database so that it achieves the optimal structure. It was first proposed by Edgar F. Codd, as an integral part of a relational model. -- page 214
+
+> When some information is needed way more often than it changes, having a cache is a good idea. An easy way to build such a cache in PostgreSQL is to use a materialized view. -- page 254
+
 ## 1. Preface
 
 ## 2. Introduction
@@ -204,6 +208,8 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `rates/load-data.sql`: load currency rate data to database, raw data downloaded from https://www.imf.org/external/np/fin/data/rms_mth.aspx?SelectDate=2018-06-30&reportType=CVSDR
 
+    + use `gist` index to create exclusion constraints
+
 - `get-currency-rate.sql`: get currency rate at a specific date
 
   + use `@>` contain operator
@@ -235,3 +241,7 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
     + use `jsonb_agg` to group records
     + use `jsonb_pretty` to output pretty json
+
+### Normalization
+
+- `custom-data-type.sql`: use `create domain` to create custom data type
