@@ -49,6 +49,8 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 > When some information is needed way more often than it changes, having a cache is a good idea. An easy way to build such a cache in PostgreSQL is to use a materialized view. -- page 254
 
+> Durability is the D of the ACID guarantees, and it refers to the property that your database management system is not allowed to miss any commit- ted transaction after a restart or a crash. . . any crash. It’s a very strong guarantee, and it can impact performances behavior a lot. Of course, by default, PostgreSQL applies a strong durability guarantee to every transaction. As you can read in the documentation about asyn- chronous commit, it’s possible to relax that guarantee for enhanced write capacity. -- page 266
+
 ## 1. Preface
 
 ## 2. Introduction
@@ -245,3 +247,16 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 ### Normalization
 
 - `custom-data-type.sql`: use `create domain` to create custom data type
+
+### Not Only SQL
+
+- `load-data.sql & load-data.py`: load JSON data to database, downloaded from https://mtgjson.com/
+
+- `normalize.sql`: extract data from the big json to multiple tables
+
+    + use `jsonb_each` to iterate objects
+    + use `jsonb_array_elements` to make array elements table rows
+
+- `black-cards.sql`: select black cards
+
+    + use `@>` operator to test containment
