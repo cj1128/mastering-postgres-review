@@ -57,7 +57,13 @@
 
 > Durability is the D of the ACID guarantees, and it refers to the property that your database management system is not allowed to miss any commit- ted transaction after a restart or a crash. . . any crash. It’s a very strong guarantee, and it can impact performances behavior a lot. Of course, by default, PostgreSQL applies a strong durability guarantee to every transaction. As you can read in the documentation about asyn- chronous commit, it’s possible to relax that guarantee for enhanced write capacity. -- page 266
 
-## 2. Introduction
+> In this chapter, we’ve been mentioning tuples and rows at different times. There’s a difference between the two: a single row might exist on-disk as more than one tuple at any time, with only one of them visible to any single transaction.The transaction doing an update now sees the new version of the row, the new tuple just inserted on-disk. As long as this transaction has yet to commit then the rest of the world still sees the previous version of the row, which is another tuple on-disk. -- page 288
+
+> PostgreSQL adds to the DML statements the truncate command. Inter- nally, it is considered to be a DDL rather than a DML. It is a very efficient way to purge a table of all of its content at once, as it doesn’t follow the per-tuple MVCC system and will simply remove the data files on disk. -- page 288
+
+> It is crucial that an application using the PostgreSQL notification capabili- ties are capable of missing events. Notifications are only sent to connected client connections. -- page 318
+
+## Chapter 2. Introduction
 
 ### A First Use Case
 
@@ -78,7 +84,7 @@
 
   + use `lag` window function.
 
-## 3. Writing SQL Queries
+## Chapter 3. Writing SQL Queries
 
 ### Business Logic
 
@@ -112,7 +118,7 @@
 
 - `tracks-named-after-artists`: find out tracks being named after another artists
 
-## 4. SQL Toolbox
+## Chapter 4. SQL Toolbox
 
 ### Get Some Data
 
@@ -198,7 +204,7 @@
 
     + use `is distinct from` to treat null as a normal value
 
-## 5. Data Types
+## Chapter 5. Data Types
 
 ### Some Relational Theory
 
@@ -232,7 +238,7 @@
 
 - `enum-type.sql`: demonstrate how to use `enum` to create enumerations
 
-## 6. Data Modeling
+## Chapter 6. Data Modeling
 
 ### Tooling for Databasde Modeling
 
@@ -264,3 +270,15 @@
 - `black-cards.sql`: select black cards
 
     + use `@>` operator to test containment
+
+## Chapter 7. Data Manipulation and Concurrency Control
+
+- we can use `materilized view` to implement cache
+
+- PG implements three isolation level: read commited, repeatable read and serializable.
+
+### Batch Update, MoMA Collection
+
+- `load-data.sql`: load `artists.2017-05-01.csv` data to database
+
+- `update.sql`: use `artist.2017-06-01.csv` data to update table
