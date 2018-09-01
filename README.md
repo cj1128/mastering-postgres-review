@@ -4,24 +4,30 @@
       Mastering PostgreSQL 
     </a>
     Review
-</h1>
+  </h1>
 
   <img src="http://ww1.sinaimg.cn/large/9b85365dgy1fr8tj2cl4qj20cc0e4dqw">
 </div>
 
 ## About Python Code
 
-first create virtual env under `~/Documents/python/envs`.
+1. create virtual env under `~/Documents/python/envs`.
 
-```bash
-python3 -m venv ~/Documents/python/envs/mastering-pg
-```
+    ```bash
+    $ python3 -m venv ~/Documents/python/envs/mastering-pg
+    ```
 
-then activate virtual env. if `direnv` has been installed, virtual env will be automaticaly activated when enters the root directory.
+2. activate virtual env. if `direnv` has been installed, virtual env will be automaticaly activated when enters the root directory.
 
-```bash
-$ source ~/Documents/python/envs/mastering-pg/bin/activate
-```
+    ```bash
+    $ source ~/Documents/python/envs/mastering-pg/bin/activate
+    ```
+
+3. install dependencies.
+
+    ```bash
+    $ pip install -r requirements.txt
+    ```
 
 ## Quotes
 
@@ -50,8 +56,6 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 > When some information is needed way more often than it changes, having a cache is a good idea. An easy way to build such a cache in PostgreSQL is to use a materialized view. -- page 254
 
 > Durability is the D of the ACID guarantees, and it refers to the property that your database management system is not allowed to miss any commit- ted transaction after a restart or a crash. . . any crash. It’s a very strong guarantee, and it can impact performances behavior a lot. Of course, by default, PostgreSQL applies a strong durability guarantee to every transaction. As you can read in the documentation about asyn- chronous commit, it’s possible to relax that guarantee for enhanced write capacity. -- page 266
-
-## 1. Preface
 
 ## 2. Introduction
 
@@ -228,7 +232,7 @@ $ source ~/Documents/python/envs/mastering-pg/bin/activate
 
 - `enum-type.sql`: demonstrate how to use `enum` to create enumerations
 
-## 5. Data Modeling
+## 6. Data Modeling
 
 ### Tooling for Databasde Modeling
 
