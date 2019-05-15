@@ -11,6 +11,6 @@ from
     date :'start' + interval '1 month' - interval '1 day',
     interval '1 day'
   ) as calendar(date)
-left join factbook
-on calendar.date = factbook.date
+  left join factbook
+  on calendar.date = factbook.date
 order by date;
